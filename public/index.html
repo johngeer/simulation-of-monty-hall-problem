@@ -9,7 +9,6 @@
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
     />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
   </head>
   <body>
     <section class="section">
@@ -51,6 +50,16 @@
         >
           <canvas id="resultsChart"></canvas>
         </div>
+
+        <div
+          class="columns"
+          id="question-columns"
+          style="padding-top: 2em; font-size: 2em; font-weight: strong"
+        >
+          <div class="column" id="question-1"></div>
+          <!-- <div class="column" id="question-2"></div> -->
+          <!-- <div class="column" id="question-3"></div> -->
+        </div>
       </div>
     </section>
 
@@ -82,6 +91,16 @@
             y: {
               beginAtZero: true,
               max: 100,
+              title: {
+                display: true,
+                text: "Percent of Simulations Won",
+              },
+            },
+            x: {
+              title: {
+                display: true,
+                text: "Simulations",
+              },
             },
           },
         },
@@ -93,6 +112,7 @@
           simulationMain(chart).then(() => {
             console.log("Simulation complete");
           });
+          addRandomQuestions();
         });
     </script>
   </body>
