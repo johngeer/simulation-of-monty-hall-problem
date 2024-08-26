@@ -65,7 +65,7 @@ function addRandomQuestions() {
   const questions = [
     "Check out the main.js file to see how this simulation works.",
     "Why are the lines more squiggly with lower numbers of simulations?",
-    "How would this change if there were more doors? What would we change in the code to do simulate this?",
+    "How would this change if there were more doors? What would we change in the code to simulate this?",
     "This simulation shows frequency of outcomes, how is that related to the probability of an outcome?",
     "How would this change if there were two doors with prizes rather than just one?",
     "Is switching doors _always_ the best choice?",
