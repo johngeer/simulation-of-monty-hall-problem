@@ -63,6 +63,7 @@ function openNonWinningDoor(doors, excluded_indices) {
 // Question functions
 function addRandomQuestions() {
   const questions = [
+    "Check out the main.js file to see how this simulation works.",
     "Why are the lines more squiggly with lower numbers of simulations?",
     "How would this change if there were more doors? What would we change in the code to do simulate this?",
     "This simulation shows frequency of outcomes, how is that related to the probability of an outcome?",
