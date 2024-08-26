@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Monty Hall Problem Simulation</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+  </head>
+  <body>
+    <section class="section">
+      <div class="container">
+        <h1 class="title">Monty Hall Problem Simulation</h1>
+        <p class="subtitle">See what strategy wins</p>
+        <div class="columns">
+          <div class="column">
+            <div class="content">
+              <p>
+                In the
+                <a href="https://en.wikipedia.org/wiki/Monty_Hall_problem">
+                  Monty Hall problem</a
+                >, a contestant is presented with three closed doors. One has a
+                prize, the others don't. After choosing a door, the host opens
+                an unchosen door without a prize and asks if the contestant
+                wants to switch. The important part is that they always choose a
+                door that doesn't have the prize, so they leak information to
+                the contestant.
+              </p>
+              <p>
+                What are the chances of winning if the contestant stays with
+                their original door, or switches?
+              </p>
+            </div>
+          </div>
+          <div class="column">
+            <div class="buttons">
+              <button id="startSimulation" class="button is-primary">
+                Start Simulation
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="chart-container"
+          style="position: relative; height: 40vh; width: 100%"
+        >
+          <canvas id="resultsChart"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <script src="main.js"></script>
+    <script>
+      const ctx = document.getElementById("resultsChart").getContext("2d");
+      const chart = new Chart(ctx, {
+        type: "line",
+        data: {
+          labels: [],
+          datasets: [
+            {
+              label: "Switch Win %",
+              data: [],
+              borderColor: "rgb(75, 192, 192)",
+              tension: 0.1,
+            },
+            {
+              label: "Stay Win %",
+              data: [],
+              borderColor: "rgb(255, 99, 132)",
+              tension: 0.1,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          scales: {
+            y: {
+              beginAtZero: true,
+              max: 100,
+            },
+          },
+        },
+      });
+      // Event listener for the start button
+      document
+        .getElementById("startSimulation")
+        .addEventListener("click", () => {
+          simulationMain(chart).then(() => {
+            console.log("Simulation complete");
+          });
+        });
+    </script>
+  </body>
+</html>
