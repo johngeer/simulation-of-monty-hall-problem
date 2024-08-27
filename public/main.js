@@ -5,7 +5,7 @@ const DOORS = [
   { is_winner: false, is_open: false, i: 2 },
 ];
 
-const N_ITERATIONS = 500;
+const N_ITERATIONS = 300;
 
 // Function to simulate one round of the Monty Hall problem
 function simulateMontyHall(doors) {
@@ -29,7 +29,7 @@ async function simulationMain(chart) {
     const result = simulateMontyHall(DOORS);
     state = updateState(state, result, i); // update the record of past simulations
 
-    if (i % 10 == 0 || i === N_ITERATIONS - 1) {
+    if (i % 5 == 0 || i === N_ITERATIONS - 1) {
       // Update the chart with new data
       console.log(state);
       updateChart(chart, state.chartData);

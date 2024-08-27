@@ -48,13 +48,20 @@
           class="chart-container"
           style="position: relative; height: 40vh; width: 100%"
         >
-          <canvas id="resultsChart"></canvas>
+          <canvas id="simulationFrequency"></canvas>
         </div>
+
+        <!-- <div -->
+        <!--   class="chart-boolean" -->
+        <!--   style="position: relative; height: 40vh; width: 100%" -->
+        <!-- > -->
+        <!--   <canvas id="simulationBoolean"></canvas> -->
+        <!-- </div> -->
 
         <div
           class="columns"
           id="question-columns"
-          style="padding-top: 2em; font-size: 2em; font-weight: strong"
+          style="margin-top: 1em; font-size: 2em; font-weight: strong"
         >
           <div class="column" id="question-1"></div>
           <!-- <div class="column" id="question-2"></div> -->
@@ -65,7 +72,9 @@
 
     <script src="main.js"></script>
     <script>
-      const ctx = document.getElementById("resultsChart").getContext("2d");
+      const ctx = document
+        .getElementById("simulationFrequency")
+        .getContext("2d");
       const chart = new Chart(ctx, {
         type: "line",
         data: {
